@@ -19,3 +19,8 @@ Route::prefix('q1')->group(function () {
     Route::get('/calculadora', 'CalculadoraController@form');
     Route::get('/calcular', 'CalculadoraController@calculate');
 });
+
+Route::prefix('q3')->group(function () {
+    Route::get('/voos', 'VoosController@form');
+    Route::get('/buscar', 'VoosController@search');
+});
