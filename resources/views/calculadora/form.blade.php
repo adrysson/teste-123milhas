@@ -21,11 +21,26 @@
             <div class="row">
                 <div class="col-md-6 offset-md-3 my-5">
                     <h1 align="center">Calculadora de equação do 2º grau</h1>
+                    @if (session('message'))
+                        <div class="alert alert-danger">
+                            Erro: {{ session('message') }}
+                        </div>
+                    @endif  
+                    @if (session('x1'))
+                        <div class="alert alert-success">
+                            X' = {{ session('x1') }}
+                        </div>
+                    @endif  
+                    @if (session('x2'))
+                        <div class="alert alert-success">
+                            X'' = {{ session('x2') }}
+                        </div>
+                    @endif  
                     <div class="card">
-                      <div class="text-white d-flex align-items-center rgba-black-strong py-5 px-4">
-                        <div>
+                        <div class="text-white d-flex align-items-center rgba-black-strong py-5 px-4">
+                            <div>
                             <h5 class="white-text"></i> Informe os coeficientes da equação</h5>
-                            <form action="q1/calcular" method="GET">
+                            <form action="calcular" method="GET">
                                 <div class="row">
                                     <div class="col-md-4">
                                         <label for="a">A</label>
