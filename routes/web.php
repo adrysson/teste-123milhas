@@ -14,3 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::prefix('q1')->group(function () {
+    Route::get('/calculadora', 'CalculadoraController@form');
+    Route::get('/calcular', 'CalculadoraController@calculate');
+});
