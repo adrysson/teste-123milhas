@@ -16,7 +16,9 @@ class VoosController extends Controller
         $text = $request->query('text');
         preg_match_all('/(\d*\.?\d{3})/', $text, $matches, PREG_UNMATCHED_AS_NULL);
         $values = current($matches);
-
+        foreach ($values as $key => $value) {
+            $values[$key] = number_format(str_replace('.', '', $value), 2, '.', '');
+        }
         if (!empty($values)) {
             return redirect()->action('VoosController@form')->with('values', $values);
         }
